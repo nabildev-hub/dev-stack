@@ -8,8 +8,8 @@ Dev Stack is a web app that helps developers explore and compare frontend, backe
 
 ## 🔗 Live Demo & Repository
 
-- 🌍 *Live Demo:* [https://react-devstack.netlify.app](#)
-- 💻 *Repository:* [https://github.com/nabildev-hub/dev-stack](#)
+- 🌍 [*Live Demo:*](https://react-devstack.netlify.app)
+- 💻 [*Repository:*](https://github.com/nabildev-hub/dev-stack)
 
 
 ---
