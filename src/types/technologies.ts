@@ -7,4 +7,5 @@ id: string,
     rating: number;
     difficulty: string;
     badge: string;
+    badgeColor: string;
 }

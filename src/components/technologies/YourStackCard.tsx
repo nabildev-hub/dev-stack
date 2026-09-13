@@ -1,5 +1,4 @@
 
-import React from "react";
 import type { Itechnologies } from "../../types/technologies";
  interface YourStackProps {
   selectedStack: Itechnologies[];

@@ -1,4 +1,4 @@
-import React, {use, useState} from 'react'
+import {use, useState} from 'react'
 import type { Itechnologies } from '../../types/technologies';
 import TechnologiesCard from './TechnologiesCard';
 import YourStack from './YourStackCard';
@@ -12,10 +12,10 @@ const Technologies = ({  technologyPromise }:TechnologiesProps) => {
     const technologies = use(technologyPromise)
     const [selectedStack, setSelectedStack] = useState<Itechnologies[]>([]);
 
-     const handleAdd = (technology: ITechnologies) => {
+     const handleAdd = (technology: Itechnologies) => {
     setSelectedStack((prev) => [...prev, technology]);
      toast.success(`${technology.name} added to your stack!`, {
-    position: "bottom-right",
+    position: "top-right",
     autoClose: 2000,
     theme: "light", })
     

@@ -1,15 +1,15 @@
-import React from 'react'
-import type { ITechnologies } from "../../types/technologies";
+
+import type { Itechnologies } from "../../types/technologies";
 
 interface TechnologiesCardProps {
-  technologies: ITechnologies[];
-  selectedStack: ITechnologies[];
-  onAdd: (technology: ITechnologies) => void;
+  technologies: Itechnologies[];
+  selectedStack: Itechnologies[];
+  onAdd: (technology: Itechnologies) => void;
 }
 
 const TechnologiesCard = ({ technologies, selectedStack, onAdd }: TechnologiesCardProps) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
     {technologies.map((tech) => {
       const isSelected = selectedStack.some((selected) => selected.id === tech.id);
 
@@ -20,7 +20,7 @@ const TechnologiesCard = ({ technologies, selectedStack, onAdd }: TechnologiesCa
           <div className="w-10 h-10 flex items-center justify-center">
             <img
               src={tech.icon}
-              alt={tech.title}
+              alt={tech.name}
               className="w-8 h-8 object-contain"
             />
           </div>
@@ -32,11 +32,6 @@ const TechnologiesCard = ({ technologies, selectedStack, onAdd }: TechnologiesCa
           </span>
         </div>
             <h2 className="text-black text-sm font-bold">{tech.name}</h2>
-    
-        <h3 className="text-xl font-bold text-slate-900 mb-2">
-          {tech.title}
-        </h3>
-
     
         <p className="text-slate-500 text-sm leading-6 mb-6 line-clamp-3">
           {tech.description}

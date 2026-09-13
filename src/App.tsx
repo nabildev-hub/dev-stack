@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import { Suspense } from 'react'
 import Nav from './components/Nav'
 import Banner from './components/Banner'
 import type { Itechnologies } from './types/technologies'
