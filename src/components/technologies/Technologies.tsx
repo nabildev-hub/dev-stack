@@ -54,7 +54,7 @@ const Technologies = ({  technologyPromise }:TechnologiesProps) => {
       <div className="flex flex-col items-center lg:items-start text-center lg:text-left max-w-2xl sm:px-4">
         <h2 className="text-4xl font-bold text-black mb-2 sm:text-5xl leading-tight lg:leading-15">
           Explore the{" "}
-          <span className="bg-linear-to-r from-pink-500 via-pink-600 to-purple-600 bg-clip-text text-transparent block sm:inline">
+          <span className="bg-linear-to-r from-orange-500 via-pink-600 to-violet-600 bg-clip-text text-transparent block sm:inline">
             Technologies
           </span>
         </h2>
