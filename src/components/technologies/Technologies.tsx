@@ -11,6 +11,10 @@ const Technologies = ({  technologyPromise }:TechnologiesProps) => {
     const technologies = use(technologyPromise)
     const [selectedStack, setSelectedStack] = useState<Itechnologies[]>([]);
 
+     const handleAdd = (technology: ITechnologies) => {
+    setSelectedStack((prev) => [...prev, technology]);
+  };
+
   const handleRemove = (id: string) => {
     setSelectedStack((prev) => prev.filter((tech) => tech.id !== id));
   };
@@ -36,7 +40,11 @@ const Technologies = ({  technologyPromise }:TechnologiesProps) => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
          <div className="lg:col-span-9">
 
-      <TechnologiesCard technologies={technologies} />
+      <TechnologiesCard technologies={technologies} 
+       selectedStack={selectedStack}
+            onAdd={handleAdd}
+      />
+      
          </div>
           <div className="lg:col-span-3">
 

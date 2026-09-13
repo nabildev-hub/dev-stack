@@ -39,7 +39,7 @@ const YourStack = ({ selectedStack, onRemove, onRemoveAll }: YourStackProps) => 
                   </div>
                 </div>
                 <button
-                  onClick={() => onRemove( tech.name)}
+                  onClick={() => onRemove( tech.id)}
                   className="text-slate-400 hover:text-red-500 cursor-pointer p-1"
                 >
                   ✕

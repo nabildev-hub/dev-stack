@@ -1,10 +1,17 @@
 import React from 'react'
+import type { ITechnologies } from "../../types/technologies";
 
-const TechnologiesCard = ({ technologies }) => {
-    console.log(technologies, "tech from card")
+interface TechnologiesCardProps {
+  technologies: ITechnologies[];
+  selectedStack: ITechnologies[];
+  onAdd: (technology: ITechnologies) => void;
+}
+
+const TechnologiesCard = ({ technologies, selectedStack, onAdd }: TechnologiesCardProps) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
     {technologies.map((tech) => {
+      const isSelected = selectedStack.some((selected) => selected.id === tech.id);
 
         return (
           <div key={tech.id} className="bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full">
@@ -56,9 +63,16 @@ const TechnologiesCard = ({ technologies }) => {
         </div>
 
         
-        <button className="w-full py-3 text-white text-sm bg-slate-950 hover:bg-slate-800 font-semibold rounded-xl transition-all"
+        <button 
+          className= {`w-full py-3 text-sm font-semibold rounded-lg ${
+    isSelected
+      ? "bg-slate-200 text-slate-400 cursor-not-allowed"
+      : "bg-slate-950 text-white hover:bg-slate-800"
+  }`}
+          onClick={() => onAdd(tech)}
+          disabled={isSelected}
         >
-          Add to Stack
+           {isSelected ? "Added to Stack" : "Add to Stack"}
         </button>
       </div>
           </div>
