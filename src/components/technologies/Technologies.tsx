@@ -1,6 +1,7 @@
-import React, {use} from 'react'
+import React, {use, useState} from 'react'
 import type { Itechnologies } from '../../types/technologies';
 import TechnologiesCard from './TechnologiesCard';
+import YourStack from './YourStackCard';
 
 interface TechnologiesProps {
     technologyPromise: Promise<Itechnologies[]>;
@@ -8,6 +9,16 @@ interface TechnologiesProps {
 
 const Technologies = ({  technologyPromise }:TechnologiesProps) => {
     const technologies = use(technologyPromise)
+    const [selectedStack, setSelectedStack] = useState<Itechnologies[]>([]);
+
+  const handleRemove = (id: string) => {
+    setSelectedStack((prev) => prev.filter((tech) => tech.id !== id));
+  };
+
+  const handleRemoveAll = () => {
+    setSelectedStack([]);
+  };
+
   return (
       <div className="container mx-auto">
       <div className="flex flex-col items-center lg:items-start text-center lg:text-left max-w-2xl sm:px-4">
@@ -20,8 +31,22 @@ const Technologies = ({  technologyPromise }:TechnologiesProps) => {
         <p className="text-lg text-[#64748B] mb-7">
           Pick one technology per category to build your ideal stack.
         </p>
+        
       </div>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+         <div className="lg:col-span-9">
+
       <TechnologiesCard technologies={technologies} />
+         </div>
+          <div className="lg:col-span-3">
+
+      <YourStack
+            selectedStack={selectedStack}
+            onRemove={handleRemove}
+            onRemoveAll={handleRemoveAll}
+          />
+          </div>
+      </div>
     </div>
   );
 };

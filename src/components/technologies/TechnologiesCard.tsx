@@ -7,7 +7,7 @@ const TechnologiesCard = ({ technologies }) => {
     {technologies.map((tech) => {
 
         return (
-          <div className="bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full">
+          <div key={tech.id} className="bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full">
             <div>
         <div className="flex items-start justify-between mb-5">
           <div className="w-10 h-10 flex items-center justify-center">
@@ -56,9 +56,7 @@ const TechnologiesCard = ({ technologies }) => {
         </div>
 
         
-        <button
-          type="button"
-          className="w-full py-3 text-white text-sm bg-slate-950 hover:bg-slate-800 font-semibold rounded-xl transition-all"
+        <button className="w-full py-3 text-white text-sm bg-slate-950 hover:bg-slate-800 font-semibold rounded-xl transition-all"
         >
           Add to Stack
         </button>
