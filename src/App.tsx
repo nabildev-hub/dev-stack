@@ -3,6 +3,8 @@ import Nav from './components/Nav'
 import Banner from './components/Banner'
 import type { Itechnologies } from './types/technologies'
 import Technologies from './components/technologies/Technologies'
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const technologiesFetch = async (): Promise<Itechnologies[]> => {
    const res = await fetch('/data.json')
@@ -19,6 +21,8 @@ const App = () => {
      <Suspense fallback={<div className='text-center text-lg font-semibold py-12'>Loading...</div>}>
      <Technologies technologyPromise={technologyPromise} />
      </Suspense>
+      <ToastContainer />
+    
     </>
   )
 }

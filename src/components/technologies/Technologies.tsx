@@ -2,6 +2,7 @@ import React, {use, useState} from 'react'
 import type { Itechnologies } from '../../types/technologies';
 import TechnologiesCard from './TechnologiesCard';
 import YourStack from './YourStackCard';
+import { toast } from "react-toastify";
 
 interface TechnologiesProps {
     technologyPromise: Promise<Itechnologies[]>;
@@ -13,15 +14,40 @@ const Technologies = ({  technologyPromise }:TechnologiesProps) => {
 
      const handleAdd = (technology: ITechnologies) => {
     setSelectedStack((prev) => [...prev, technology]);
+     toast.success(`${technology.name} added to your stack!`, {
+    position: "bottom-right",
+    autoClose: 2000,
+    theme: "light", })
+    
   };
 
-  const handleRemove = (id: string) => {
-    setSelectedStack((prev) => prev.filter((tech) => tech.id !== id));
-  };
+ const handleRemove = (id: string) => {
+  const technology = selectedStack.find((tech) => tech.id === id);
 
-  const handleRemoveAll = () => {
-    setSelectedStack([]);
-  };
+  setSelectedStack((prev) =>
+    prev.filter((tech) => tech.id !== id)
+  );
+
+  if (technology) {
+    toast.info(`${technology.name} removed from your stack!`, {
+      position: "bottom-right",
+      autoClose: 2000,
+      theme: "light",
+    });
+  }
+};
+
+ const handleRemoveAll = () => {
+  if (selectedStack.length === 0) return;
+
+  setSelectedStack([]);
+
+  toast.info("All technologies removed from your stack!", {
+    position: "bottom-right",
+    autoClose: 2000,
+    theme: "light",
+  });
+};
 
   return (
       <div className="container mx-auto">
